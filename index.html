@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D Geometrik Şekiller Galerisi</title>
+  <meta name="description" content="Üç boyutlu geometrik şekilleri interaktif olarak inceleyebileceğiniz modern 3D galeri.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Ana Konteyner -->
+  <div class="app-container">
+    
+    <!-- Üst Başlık ve Bilgi Alanı -->
+    <header class="app-header">
+      <div class="header-badge">3D GEOMETRİ ATÖLYESİ</div>
+      <div class="title-container">
+        <h1 id="shapeTitle" class="shape-title">Küp</h1>
+        <p id="shapeSubtitle" class="shape-subtitle">Düzgün Altıyüzlü • 6 Yüz, 12 Ayrıt, 8 Köşe</p>
+      </div>
+      <div class="counter-badge" id="counterBadge">1 / 4</div>
+    </header>
+
+    <!-- 3D Sahne Alanı -->
+    <main class="scene-wrapper" id="sceneContainer">
+      <canvas id="webglCanvas"></canvas>
+
+      <!-- Sol Ok Butonu (Küp durumunda gizli) -->
+      <button id="prevBtn" class="nav-arrow nav-arrow-left" aria-label="Önceki Şekil" title="Önceki Şekil">
+        <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Sağ Ok Butonu (Dikdörtgen durumunda gizli) -->
+      <button id="nextBtn" class="nav-arrow nav-arrow-right" aria-label="Sonraki Şekil" title="Sonraki Şekil">
+        <svg viewBox="0 0 24 24" width="32" height="32" stroke="currentColor" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </button>
+
+      <!-- Etkileşim İpucu -->
+      <div class="interaction-hint" id="interactionHint">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a4 4 0 0 0-4 4v5a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Z"></path>
+          <line x1="12" y1="6" x2="12" y2="9"></line>
+        </svg>
+        <span>Sol tık ile basılı tutup sürükleyerek 360° inceleyin</span>
+      </div>
+    </main>
+
+    <!-- Alt Navigasyon ve Kontroller -->
+    <footer class="app-footer">
+      <!-- Nokta / Sekme Göstergeleri -->
+      <div class="shape-tabs" id="shapeTabs">
+        <button class="tab-item active" data-index="0">
+          <span class="tab-dot"></span>
+          <span class="tab-label">Küp</span>
+        </button>
+        <button class="tab-item" data-index="1">
+          <span class="tab-dot"></span>
+          <span class="tab-label">Üçgen</span>
+        </button>
+        <button class="tab-item" data-index="2">
+          <span class="tab-dot"></span>
+          <span class="tab-label">Silindir</span>
+        </button>
+        <button class="tab-item" data-index="3">
+          <span class="tab-dot"></span>
+          <span class="tab-label">Dikdörtgen</span>
+        </button>
+      </div>
+
+      <!-- Ekstra Fonksiyonlar -->
+      <div class="quick-controls">
+        <button id="resetRotationBtn" class="tool-btn" title="Görünümü Sıfırla">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+            <path d="M3 3v5h5"></path>
+          </svg>
+          <span>Açıyı Sıfırla</span>
+        </button>
+        <button id="autoRotateBtn" class="tool-btn" title="Otomatik Döndürme">
+          <svg viewBox="0 0 24 24" width="16" height="16" stroke="currentColor" stroke-width="2" fill="none">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+          <span id="autoRotateText">Otomatik Döndür</span>
+        </button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Kütüphaneler (Yerel ve Hızlı) -->
+  <script src="three.min.js"></script>
+  <script src="gsap.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
