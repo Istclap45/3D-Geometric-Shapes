@@ -1,2 +1,5 @@
 # 3D-Geometric-Shapes
-4 farklı geometrik şekli 3D şekilde etrafını döndürerek görüntüleyebileceğiniz bir yerel html uygulaması.
+Bu uygulama sayesinde 4 tane geometrik şekli bilgisayarınızda yerel olarak görüntüleyebilir ve döndürerek etrafını da görüntütüleyebilirsiniz.
+
+# Nasıl Kullanılır?
+Projeyi kendi bilgisayarınıza zip dosyası olarak indirdikten sonra klasöre çıkartın ve içindeki html dosyasını çift tıklayarak tarayıcınızda açın.
